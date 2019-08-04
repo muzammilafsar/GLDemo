@@ -1,0 +1,16 @@
+<h1 mat-dialog-title *ngIf="!newForm">Edit Email</h1>
+<h1 mat-dialog-title *ngIf="newForm">Add Entry</h1>
+<div mat-dialog-content>
+  <form [formGroup]="emailForm">
+    <mat-form-field>
+      <input matInput formControlName="email" >
+    </mat-form-field>
+  </form>
+  <div>
+    <mat-hint *ngIf="!emailForm.valid && emailForm.touched" class="error">Email is not valid</mat-hint>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick(false)">Cancel</button>
+  <button mat-button (click)="onNoClick(true)" cdkFocusInitial>Ok</button>
+</div>
